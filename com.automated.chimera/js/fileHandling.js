@@ -35,20 +35,13 @@ function printResults(result) {
 }
 
 function checkCsvFile() {
+  // Implementação para verificar o arquivo CSV
   const fileInput = document.getElementById('csvFile');
-  const columnLetterInput = document.getElementById('columnLetter');
   const file = fileInput.files[0];
   const reader = new FileReader();
   reader.onload = () => {
     const csvData = reader.result;
-    const columnLetter = columnLetterInput.value.toUpperCase();
-    alert('colLet ' + columnLetter);
-    const columnIndex = columnLetter.charCodeAt(0) - 65; // A=0, B=1, C=2, etc.
-    alert('colInd ' + columnIndex);
-    const rows = csvData.split('\n');
-    const headers = rows[0].split(',');
-    const columnValues = rows.slice(1).map((row) => row.split(',')[columnIndex]);
-    handleCsvData(columnValues, headers);
+    handleCsvData(csvData);
   };
   reader.readAsText(file);
 }
