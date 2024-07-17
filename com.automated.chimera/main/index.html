@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/item.css">
+  <title>Automated Chimera</title>
+
+
+  <!-- APAGAR APÓS TESTES -->
+
+<style>
+.popHover {
+  background:#023047;
+  z-index: 1005;
+  border: 1px solid #ffc300;
+  color: #ffc300;
+  font-size: 12px;
+  padding: 10px;
+  position: relative;
+  display:none;
+  margin-top: 10px;
+  }
+
+  p {
+    margin-top: 0px;
+  }
+  p:hover .popHover{
+    display:block;
+}
+</style>
+
+
+  <!-- /APAGAR APÓS TESTES -->
+  <script>
+    function callScript() {
+      var csInterface = new CSInterface();
+      csInterface.evalScript('../jsx/replaceMedia.jsx');
+    }
+  </script>
+
+  <!-- SCRIPTS -->
+  <script src="../js/libs/CSInterface.js">csInterface.evalScript(`$.evalFile("${csInterface.getSystemPath(SystemPath.EXTENSION)}/jsx/extendScript.jsx"); saveJsonWithExtendScript('${dataString}')`);</script>
+  <script src="../js/libs/jquery.min.js"></script>
+  <script src="../js/libs/sortable.min.js"></script>
+  <script src="../js/libs/papaparse.min.js"></script>
+  <script src="../js/saveJSONFile.js"></script>
+  <script src="../jsx/saveFile.jsx"></script>
+  <script src="../jsx/saveData.jsx"></script>
+  <script src="../js/csvMapping.js"></script>
+  <script src="../jsx/json2.js"></script>
+  <script src="../jsx/main.jsx"></script>
+
+    
+  <!-- /SCRIPTS -->
+
+</head>
+
+<body>
+  <!-- HTML -->
+  <div class="modal-title">:: bot csv ::</div>
+  <div class="modal-stroke"></div>
+
+  <div class="form-group">
+    <label for="csvFile" class="label"></label>
+
+    <label class="custom-file-upload">
+      <span id="filePathLabel">Select.csv file...</span>
+      <input type="file" id="csvFile" accept=".csv" onchange="handleFileSelect(event)">
+    </label>
+  </div>
+  <div class="modal-stroke"></div>
+  <div class="preset-list">
+    <div class="preset-input" id="preset-input-field">
+      <ul id="preset-list-ul">
+      </ul>
+    </div>
+    <div class="preset-button" onclick="loadFromTxt()">LOAD</div>
+    <div class="preset-button apply" onclick="applyPreset()">APPLY</div>
+    <div class="preset-button"id="save-json-btn">SAVE</div>
+  </div>
+  <div class="modal-bg"> </div>
+  <div id="all"> </div>
+  <!-- add container -->
+  <div class="add-container-btn" id="add-container-btn" onclick="addContainer()"
+    style="display: flex; flex-direction: row; margin-top: 10px; color:#FFFFFF;"> Add Container <div
+      class="icon-add-container"></div>
+  </div>
+
+  <div id="context-menu" class="context-menu">
+    <ul>
+      <li id="minimizeButton">Minimize</li>
+      <li onclick="deleteDiv()">Delete</li>
+      <li onclick="duplicateDiv()">Duplicate</li>
+    </ul>
+  </div>
+
+  <div class="bottom">
+    <div class="preset-button" id="check-values">CHECK</div>
+    <div id="check-selected-values" style="display: none"></div>
+    <div class="preset-button" id="runButton">RUN</div>
+  </div>
+
+
+  <button onclick="collectDataList()">function Lista</button>
+  <button onclick="location.reload()">Recarregar Página</button>
+  <button id="get-selected-values">Get Selected Values</button>
+  <div id="selected-values" style="color:#ffffff;"></div>
+
+  <!-- /HTML -->
+
+
+
+  <!-- BOTÕES TESTE -->
+
+  <object type="text/html" data="botoes-teste.html" style="width: 100%; height: 500px;"></object>
+
+
+  <!-- /BOTÕES TESTE-->
+
+
+
+  <!-- SCRIPTS -->
+  <script src="../js/globalData.js"></script>
+  <script src="../js/contextMenu.js"></script>
+  <script src="../js/fileHandling.js"></script>
+  <script src="../js/domManipulation.js"></script>
+  <!-- /SCRIPTS --> 
+
+</body>
+</html>

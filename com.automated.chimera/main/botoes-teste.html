@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/item.css">
+  <title>Automated Chimera</title>
+
+
+<style>
+.popHover {
+  background:#023047;
+  z-index: 1005;
+  border: 1px solid #ffc300;
+  color: #ffc300;
+  font-size: 12px;
+  padding: 10px;
+  position: relative;
+  display:none;
+  margin-top: 10px;
+  }
+
+  p {
+    margin-top: 0px;
+  }
+  p:hover .popHover{
+    display:block;
+}
+</style>
+<script src="../js/libs/CSInterface.js">csInterface.evalScript(`$.evalFile("${csInterface.getSystemPath(SystemPath.EXTENSION)}/jsx/extendScript.jsx"); saveJsonWithExtendScript('${dataString}')`);</script>
+<script src="../js/libs/jquery.min.js"></script>
+<script src="../js/libs/sortable.min.js"></script>
+<script src="../js/libs/papaparse.min.js"></script>
+<script src="../js/saveJSONFile.js"></script>
+<script src="../jsx/saveFile.jsx"></script>
+<script src="../jsx/saveData.jsx"></script>
+<script src="../js/csvMapping.js"></script>
+<script src="../jsx/json2.js"></script>
+<script src="../jsx/main.jsx"></script>
+
+</head>
+
+<body>
+
+<div class="bottom" style="align-content: center;">
+
+    <div class="preset-button" style="width: 100%;" id="runReplaceMedia"><p>
+        REPLACE MEDIA
+      <span class="popHover">
+        function de Substituição de arquivo de media
+      </span>
+    </p>
+    </div>
+
+    <div class="preset-button" style="width: 100%;" id="runDupRen"><p>
+        DUP & REN
+      <span class="popHover">
+        function de Duplicar e Renomear composições
+      </span>
+    </p>
+    </div>
+
+    <div class="preset-button" style="width: 100%;" id="runDuplicateIndependent"><p>
+        DUP IND
+      <span class="popHover">
+        function de Duplicar e renomear todas as composições alteradas
+      </span>
+    </p>
+    </div>
+    
+</div>
+
+
+<div class="bottom" style="align-content: center;">
+
+    <div class="preset-button" style="width: 100%;" id="runTextContent"><p>
+        REPLACE TEXT CONTENT
+      <span class="popHover">
+        function de Substituição do conteúdo da camada de texto
+      </span>
+    </p>
+    </div>
+
+    <div class="preset-button" style="width: 100%;" id="runNewComp"><p>
+        NEW COMP
+      <span class="popHover">
+        function de criar nova composição
+      </span>
+    </p>
+    </div>
+
+    <div class="preset-button" style="width: 100%;" id="btnRenderizar"><p>
+        RENDER
+      <span class="popHover">
+        function de Duplicar e renomear todas as composições alteradas
+      </span>
+    </p>
+    </div>
+    
+</div>
+
+
+<div class="bottom" style="align-content: center;">
+
+  <div class="preset-button" style="width: 100%;" id="create-list-button"><p>
+      COLLECT LIST
+    <span class="popHover">
+      function de Substituição do conteúdo da camada de texto
+    </span>
+  </p>
+  </div>
+
+  <div class="preset-button" style="width: 100%;" id="create-alert-button"><p>
+      REVEAL LIST
+    <span class="popHover">
+      function de criar nova composição
+    </span>
+  </p>
+  </div>
+  <button onclick="collectDataList()">Criar lista</button>
+  <button id="dataJSON">Criar alert</button>
+  
+  <div class="preset-button" style="width: 100%;" id="btnRenderizar"><p>
+      RENDER
+    <span class="popHover">
+      function de Duplicar e renomear todas as composições alteradas
+    </span>
+  </p>
+  </div>
+  
+</div>
+
+  <!-- SCRIPTS -->
+  <script src="../js/globalData.js"></script>
+  <script src="../js/contextMenu.js"></script>
+  <script src="../js/fileHandling.js"></script>
+  <script src="../js/domManipulation.js"></script>
+  <!-- /SCRIPTS --> 
+</body>
+</html>
